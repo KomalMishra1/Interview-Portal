@@ -1,0 +1,884 @@
+<div class="container-fluid" style="padding-left:0px;">
+<div class="row">
+<div class="col-2 col-md-2 clo-lg-2" >
+<div class="card" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); background-color:#194769; height:-webkit-fill-available;">
+  <div class="card-body">
+     <h5 class="card-title" style="color:white;">Interview Portal</h5>
+	   <div class="row">
+	<div class="col-10" style="color:#b8b894;">
+		<p class="card-text" ><a href = "#" style="color:#b8b894;">Form</a></p>
+				<p class="card-text" ><a href = "#" style="color:#b8b894;">All</a></p>
+						<p class="card-text" > <a href = "#" style="color:#b8b894;">On Hold</a></p>
+								<p class="card-text" ><a href = "#" style="color:#b8b894;">Recruited</a></p>
+								<p class="card-text" style="color:#b8b894;" (click)="moveToAdd();">Add File</p>
+	 </div>
+	 <div class="col-2">
+	 <!-- <p class="card-text"><a href="#">ADD</a></p> -->
+	<!-- <p class="card-text"><a href="#">ADD</a></p> -->
+	<!-- <p class="card-text"><a href="#">ADD</a></p> -->
+	<!-- <p class="card-text"><a href="#">ADD</a></p> -->
+	 <!-- <p class="card-text"><a href="#">ADD</a></p> -->
+
+
+	 </div>
+   </div>
+   </div>
+   </div>
+
+</div>
+<div class="col-10 col-md-10 col-lg-10">
+<h3 class="text-center mt-2" style="color:#194769;">Interview Rating Form</h3>
+<div class="card mt-5" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+  <div class="card-body">
+  <div class="row">
+  <div class="col">
+     <h5 class="card-title">Basic Details</h5>
+	 <div class="card-title" style="color:#b8b894;">
+	 Please Fill out the basic details of the Candidate
+	 </div>
+    </div>
+    <div class="col">
+     <img src="../assets/images/add.png" alt="add" style="float:right;" data-toggle="modal" data-target=".bd-example-modal-lg">
+	 <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Basic Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <form [formGroup]="basicDetailsForm">
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputText">Candidate Name</label>
+      <input formControlName="name" type="text" class="form-control" id="inputText" placeholder="Candidate Name">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputmobile">Mobile no.</label>
+      <input  formControlName="mobile" type="number" class="form-control" id="inputmobile" placeholder="(+91)9451278968">
+    </div>
+	 <div class="form-group col-md-4">
+      <label for="inputemail">Email</label>
+      <input formControlName="email" type="email" class="form-control" id="inputemail" placeholder="Email">
+    </div>
+  </div>
+  <div class="form-row">
+  <div class="form-group col-md-8">
+    <label for="inputExperience">Total Experience</label>
+    <input formControlName="totalExperience" type="text" class="form-control" id="inputExperience" placeholder="Total Experience">
+  </div>
+   <div class="form-group col-md-8">
+    <label for="inputExperience2">Relevant Experience</label>
+    <input formControlName="relevantExperience" type="number" class="form-control" id="inputExperience2" placeholder="Relevant Experience">
+  </div>
+  </div>
+ <div class="form-row">
+  <div class="form-group col-md-12">
+      <label for="input1">Current Role</label>
+      <input formControlName="currentrole" type="text" class="form-control" id="input1" placeholder="yes or no">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="input2">Interviewer Id</label>
+      <input type="number" class="form-control" id="input2" formControlName="interviewerId">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputState">Mode of Interview</label>
+      <select id="inputState" class="form-control" formControlName="modeOfInterview" >
+        <option selected>Telephone</option>
+        <option>VC</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div>
+  <fieldset class="form-group">
+<div class="row">
+<legend class="col-form-label col-sm-2 pt-0">subjects to be interviewed</legend>
+<div class="col-sm-10">
+  <div class="form-check form-check-inline  pl-5">
+     <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="C" (change)="go('C' , $event)">
+    <label class="form-check-label" for="inlineCheckbox1" >C</label>
+  </div>
+   <div class="form-check form-check-inline pl-5">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" (change)="go('OS' , $event)">
+    <label class="form-check-label" for="inlineCheckbox2" >OS</label>
+  </div>
+  <div class="form-check form-check-inline  pl-5">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" (change)="go('Python' , $event)">
+    <label class="form-check-label" for="inlineCheckbox3" >Python</label>
+  </div>
+  <div class="form-check form-check-inline  pl-5">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4" (change)="go('Java' , $event)" >
+    <label class="form-check-label" for="inlineCheckbox4" >Java</label>
+  </div>
+</div>
+</div>
+</fieldset>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="postBasicDetails();">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+
+	</div>
+  </div>
+</div>
+<div class="card mt-5" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+  <div class="card-body">
+  <div class="row">
+  <div class="col">
+     <h5 class="card-title">Basic Skills</h5>
+	  <div class="card-title" style="color:#b8b894;">
+	 Please Fill out the basic skills of the Candidate
+	 </div>
+    </div>
+    <div class="col">
+    <img src="../assets/images/add.png" alt="add" style="float:right;" data-toggle="modal" data-target="#exampleModal" (click)="generateForm();">
+	 <!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">C Skills</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <form>
+
+  <div class="form-group" >
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Topic</th>
+      <th scope="col">Weightage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let topic of topic ; let i=index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{topic}}</td>
+    <td> <select class="custom-select">
+      <option selected> select</option>
+      <option value="1">Weak</option>
+      <option value="2">Average</option>
+      <option value="3">Good</option>
+      <option value="4">Excellent</option>
+    </select></td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+<div class="card mt-5" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+  <div class="card-body">
+  <div class="row">
+  <div class="col">
+     <h5 class="card-title">Project Experience</h5>
+    </div>
+    <div class="col">
+	    <img src="../assets/images/add.png" alt="add" style="float:right;"  data-toggle="modal" data-target="#exampleModal2">
+		 <!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Project Experience</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+                    <div class="form" [formGroup]="projectExperienceForm">
+                    <!-- form complex example -->
+                    <div class="form-row">
+                        <div class="col-sm-6 pb-3">
+                            <label for="exampleAccount">Devices with hands-on Exp</label>
+                            <input type="text" class="form-control" id="exampleAccount" placeholder="OS" formControlName="devicesWithExperience">
+                        </div>
+                        <div class="col-sm-6 pb-3">
+                             <label for="inputState">Protocol Knowledge</label>
+							  <select id="inputState" class="form-control" formControlName="protocolKnowledge">
+								<option selected>Hands-on Experience</option>
+								<option>Inter Working across protocols</option>
+							  </select>
+							  </div>
+							  </div>
+							   <div class="form-group">
+								<label for="formControlRange">Knowledge of the system Architecture and Inter module Interaction</label>
+								<select class="custom-select" formControlName="architectureKnowledge">
+								  <option selected> select</option>
+								  <option value="1">Weak</option>
+								  <option value="2">Average</option>
+								  <option value="3">Good</option>
+								  <option value="4">Excellent</option>
+								</select>
+							  </div>
+                    <div class="form-group">
+                            <label for="exampleRole">Roles Played in Projects</label>
+                            <input type="text" class="form-control" id="exampleRole" formControlName="rolePlayed">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleContribute">Contribution to</label>
+							 <input type="text" class="form-control" id="exampleContribute" formControlName="contributionTo">
+
+                        </div>
+                       <div class="form-group">
+                            <label for="exampleMessage">Project Description</label>
+                            <textarea class="form-control" id="exampleMessage" formControlName="projectDescription"></textarea>
+                            <small class="text-info">
+                              Add the note here.
+                            </small>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="postProjectExperience();">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+		 </div>
+		 </div>
+		 </div>
+		 </div>
+		 <div class="card mt-5" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+  <div class="card-body">
+  <div class="row">
+  <div class="col">
+     <h5 class="card-title">Tools Knowledge</h5>
+    </div>
+    <div class="col">
+		     <img src="../assets/images/add.png" alt="add" style="float:right;"  data-toggle="modal" data-target="#exampleModal7">
+		 <!-- Button trigger modal -->
+		 <!-- Modal -->
+<div class="modal fade" id="exampleModal7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tools Knowledge</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+                    <div class="form" [formGroup]="toolsKnowledgeForm">
+                    <!-- form complex example -->
+
+                    <div class="form-group">
+                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Tool Type</label>
+						  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" formControlName="toolType">
+							<option selected>Choose...</option>
+							<option>Dev</option>
+							<option >Test</option>
+
+						  </select>
+					</div>
+					<div class="form-group">
+					<label for="customKnowledge">Knowledge</label>
+						<select class="custom-select" id="customKnowledge" formControlName="toolsKnowledge">
+								  <option selected> select</option>
+								  <option value="1">Weak</option>
+								  <option value="2">Average</option>
+								  <option value="3">Good</option>
+								  <option value="4">Excellent</option>
+								</select>
+						</div>
+                    </div>
+
+                </div>
+
+
+
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="postToolsKnowledge();">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+		 </div>
+</div>
+</div>
+</div>
+<div class="card mt-5" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+  <div class="card-body">
+  <div class="row">
+  <div class="col">
+     <h5 class="card-title">Key Competencies</h5>
+    </div>
+    <div class="col">
+		    <img src="../assets/images/add.png" alt="add" style="float:right;"  data-toggle="modal" data-target="#exampleModal3">
+
+		 <!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Key Competencies</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form [formGroup]="keyCompetencyForm">
+  <div class="form-group">
+    <label for="exampleAbility">Learning Ability</label>
+  <select class="custom-select" id="exampleAbility" formControlName="learningAbility">
+								  <option selected> select</option>
+								  <option value="1">Weak</option>
+								  <option value="2">Average</option>
+								  <option value="3">Good</option>
+								  <option value="4">Excellent</option>
+								</select>
+  </div>
+   <div class="form-group">
+    <label for="exampleSolving">Problem Solving</label>
+<select class="custom-select" id="exampleSolving" formControlName="problemSolving">
+								  <option selected> select</option>
+								  <option value="1">Weak</option>
+								  <option value="2">Average</option>
+								  <option value="3">Good</option>
+								  <option value="4">Excellent</option>
+								</select>
+  </div>
+   <div class="form-group">
+    <label for="examplePlayer">Team Player</label>
+   <select class="custom-select" id="examplePlayer" formControlName="teamPLayer">
+								  <option selected> select</option>
+								  <option value="1">Weak</option>
+								  <option value="2">Average</option>
+								  <option value="3">Good</option>
+								  <option value="4">Excellent</option>
+								</select>
+  </div>
+   <div class="form-group">
+    <label for="exampleSkills">Communication Skills</label>
+ <select class="custom-select" id="exampleSkills" formControlName="communicationSkills">
+								  <option selected> select</option>
+								  <option value="1">Weak</option>
+								  <option value="2">Average</option>
+								  <option value="3">Good</option>
+								  <option value="4">Excellent</option>
+								</select>
+  </div>
+   <div class="form-group">
+    <label for="exampleAttitude">Attitude</label>
+   <select class="custom-select" id="exampleAttitude" formControlName="atittude">
+								  <option selected> select</option>
+								  <option value="1">Weak</option>
+								  <option value="2">Average</option>
+								  <option value="3">Good</option>
+								  <option value="4">Excellent</option>
+								</select>
+  </div>
+   <div class="form-group">
+    <label for="formControlRange">Ownership & Commitment</label>
+   <select class="custom-select" formControlName="ownershipCommitment">
+								  <option selected> select</option>
+								  <option value="1">Weak</option>
+								  <option value="2">Average</option>
+								  <option value="3">Good</option>
+								  <option value="4">Excellent</option>
+								</select>
+  </div>
+   <div class="form-group">
+    <label for="formControlRange">Self Initiative</label>
+   <select class="custom-select" formControlName="selfInitiative">
+								  <option selected> select</option>
+								  <option value="1">Weak</option>
+								  <option value="2">Average</option>
+								  <option value="3">Good</option>
+								  <option value="4">Excellent</option>
+								</select>
+  </div>
+   <div class="form-group">
+    <label for="formControlRange">Customer Interaction</label>
+   <select class="custom-select" formControlName="customerInteraction">
+								  <option selected> select</option>
+								  <option>Weak</option>
+								  <option >Average</option>
+								  <option>Good</option>
+								  <option >Excellent</option>
+								</select>
+  </div>
+
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="postKeyCompetencies();">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+		 </div>
+</div>
+</div>
+</div>
+<div class="card mt-5" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+  <div class="card-body">
+  <div class="row">
+  <div class="col">
+     <h5 class="card-title">Project Management</h5>
+	  <div class="card-title" style="color:#b8b894;">
+	 Please Fill out the  skills of the Candidate
+	 </div>
+    </div>
+    <div class="col">
+<img src="../assets/images/add.png" alt="add" style="float:right;"  data-toggle="modal" data-target="#exampleModal4">
+
+<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Project Management</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form [formGroup]="projectManagementForm">
+  <div class="form-group">
+    <label for="formControlRange">Project Management Methodology</label>
+   <select class="custom-select" formControlName="projectMethodology">
+								  <option selected> select</option>
+								  <option value="1">Weak</option>
+								  <option value="2">Average</option>
+								  <option value="3">Good</option>
+								  <option value="4">Excellent</option>
+								</select>
+  </div>
+   <div class="form-group">
+    <label for="formControlRange">People mgmt approach</label>
+    <select class="custom-select" formControlName="projectApproach">
+								  <option selected> select</option>
+								  <option value="1">Weak</option>
+								  <option value="2">Average</option>
+								  <option value="3">Good</option>
+								  <option value="4">Excellent</option>
+								</select>
+  </div>
+   <div class="form-group">
+    <label for="formControlRange">Performance mgmt</label>
+   <select class="custom-select" formControlName="performanceManagement">
+								  <option selected> select</option>
+								  <option value="1">Weak</option>
+								  <option value="2">Average</option>
+								  <option value="3">Good</option>
+								  <option value="4">Excellent</option>
+								</select>
+  </div>
+   <div class="form-group">
+    <label for="formControlRange">Customer Interface</label>
+  <select class="custom-select" formControlName="customerInterface">
+								  <option selected> select</option>
+								  <option value="1">Weak</option>
+								  <option value="2">Average</option>
+								  <option value="3">Good</option>
+								  <option value="4">Excellent</option>
+								</select>
+  </div>
+   <div class="form-group">
+    <label for="formControlRange">Interface with Stakeholders</label>
+   <select class="custom-select" formControlName="interfaceWithStakeholders">
+								  <option selected> select</option>
+								  <option value="1">Weak</option>
+								  <option value="2">Average</option>
+								  <option value="3">Good</option>
+								  <option value="4">Excellent</option>
+								</select>
+  </div>
+   <div class="form-group">
+    <label for="formControlRange">Cost cutting ideas</label>
+  <select class="custom-select" formControlName="costCuttingIdeas">
+								  <option selected> select</option>
+								  <option value="1">Weak</option>
+								  <option value="2">Average</option>
+								  <option value="3">Good</option>
+								  <option value="4">Excellent</option>
+								</select>
+  </div>
+   <div class="form-group">
+    <label for="formControlRange">Project Financials</label>
+  <select class="custom-select" formControlName="projectFinancials">
+								  <option selected> select</option>
+								  <option value="1">Weak</option>
+								  <option value="2">Average</option>
+								  <option value="3">Good</option>
+								  <option value="4">Excellent</option>
+								</select>
+  </div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="postProjectManagement();">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+		 </div>
+</div>
+</div>
+</div>
+<div class="card mt-5" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+  <div class="card-body">
+  <div class="row">
+  <div class="col">
+     <h5 class="card-title">Technical Monitoring</h5>
+	  <div class="card-title" style="color:#b8b894;">
+	 Please Fill out the  skills of the Candidate
+	 </div>
+    </div>
+    <div class="col">
+	<img src="../assets/images/add.png" alt="add" style="float:right;"  data-toggle="modal" data-target="#exampleModal8">
+
+<div class="modal fade" id="exampleModal8" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Technical Monitoring</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form [formGroup]="technicalMonitoringForm">
+  <div class="form-group">
+  <label for="customRange2">Technical Guidance to Team Memmbers</label>
+<select class="custom-select" formControlName="technicalGuidance">
+								  <option selected> select</option>
+								  <option value="1">Weak</option>
+								  <option value="2">Average</option>
+								  <option value="3">Good</option>
+								  <option value="4">Excellent</option>
+								</select>
+  </div>
+
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="postTechnicalMonitoring();">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+		 </div>
+</div>
+</div>
+</div>
+<div class="card mt-5" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+  <div class="card-body">
+  <div class="row">
+  <div class="col">
+     <h5 class="card-title">Technical Specialist</h5>
+	  <div class="card-title" style="color:#b8b894;">
+	 Please Fill out the  skills of the Candidate
+	 </div>
+    </div>
+    <div class="col">
+	<img src="../assets/images/add.png" alt="add" style="float:right;"  data-toggle="modal" data-target="#exampleModal9">
+
+<div class="modal fade" id="exampleModal9" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Technical Specialist</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form [formGroup]="technicalSpecialistForm">
+		  <div class="form-group row">
+			<label for="colFormLabel" class="col-sm-7 col-form-label">Contribution to Technical Interviews</label>
+			<div class="col-sm-5">
+			  <select class="custom-select" formControlName="contributionToInterview">
+				  <option selected>Open this select menu</option>
+				  <option value="1">Average</option>
+				  <option value="2">Good</option>
+				  <option value="3">Excellent</option>
+				</select>
+			</div>
+		  </div>
+		   <div class="form-group row">
+			<label for="colFormLabel" class="col-sm-7 col-form-label">Product field-deployment knowledge</label>
+			<div class="col-sm-5">
+			  <select class="custom-select" formControlName="productDeploymentKnowledge">
+				  <option selected>Open this select menu</option>
+				  <option value="1">Average</option>
+				  <option value="2">Good</option>
+				  <option value="3">Excellent</option>
+				</select>
+			</div>
+		  </div>
+		   <div class="form-group row">
+			<label for="colFormLabel" class="col-sm-7 col-form-label">Technical Proposal Contribution for new projects</label>
+			<div class="col-sm-5">
+			  <select class="custom-select" formControlName="technicalContribution">
+				  <option selected>Open this select menu</option>
+				  <option value="1">Average</option>
+				  <option value="2">Good</option>
+				  <option value="3">Excellent</option>
+				</select>
+			</div>
+		  </div>
+		   <div class="form-group row">
+			<label for="colFormLabel" class="col-sm-7 col-form-label">Technical Audit Contribution</label>
+			<div class="col-sm-5">
+			  <select class="custom-select" formControlName="technicalAuditContribution">
+				  <option selected>Open this select menu</option>
+				  <option value="1">Average</option>
+				  <option value="2">Good</option>
+				  <option value="3">Excellent</option>
+				</select>
+			</div>
+		  </div>
+		   <div class="form-group row">
+			<label for="colFormLabel" class="col-sm-7 col-form-label">Contribution to new technology inititatives with organization</label>
+			<div class="col-sm-5">
+			  <select class="custom-select" formControlName="contributionToNewTechnology">
+				  <option selected>Open this select menu</option>
+				  <option value="1">Average</option>
+				  <option value="2">Good</option>
+				  <option value="3">Excellent</option>
+				</select>
+			</div>
+		  </div>
+		   <div class="form-group row">
+			<label for="colFormLabel" class="col-sm-7 col-form-label">Technical-paper presentation and contribution to standard bodies</label>
+			<div class="col-sm-5">
+			  <select class="custom-select" formControlName="technicalPresentation">
+				  <option selected>Open this select menu</option>
+				  <option value="1">Average</option>
+				  <option value="2">Good</option>
+				  <option value="3">Excellent</option>
+				</select>
+			</div>
+		  </div>
+		   <div class="form-group row">
+			<label for="colFormLabel" class="col-sm-7 col-form-label">Performance Optimization, Design for Scalability</label>
+			<div class="col-sm-5">
+			  <select class="custom-select" formControlName="performanceOptimization">
+				  <option selected>Open this select menu</option>
+				  <option value="1">Average</option>
+				  <option value="2">Good</option>
+				  <option value="3">Excellent</option>
+				</select>
+			</div>
+		  </div>
+
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="postTecnicalSpecialist();">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+		 </div>
+</div>
+</div>
+</div>
+<div class="card mt-5" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+  <div class="card-body">
+  <div class="row">
+  <div class="col">
+     <h5 class="card-title">Conclusion</h5>
+    </div>
+    <div class="col">
+	   <img src="../assets/images/add.png" alt="add" style="float:right;"  data-toggle="modal" data-target="#exampleModal6">
+		 <!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Conclusion</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+                    <div class="form" [formGroup]="ConclusionForm">
+                    <!-- form complex example -->
+                    <div class="form-group">
+                    <label for="customRange2">Legend</label>
+                  <select class="custom-select" formControlName="legend">
+                  								  <option selected> select</option>
+                  								  <option value="1">Exceeds Expectations</option>
+                  								  <option value="2">Meets Expectations</option>
+                  								  <option value="3">Needs Improvement</option>
+                  								  <option value="4">Not Aware</option>
+                  								</select>
+                    </div>
+							   <div class="form-group">
+                            <label for="exampleMessage">Expectations from Candidates & Commitment given to candidate</label>
+                            <textarea class="form-control" id="exampleMessage" formControlName="expectationsAndCommittment"></textarea>
+                            <small class="text-info">
+                              Add the note here.
+                            </small>
+                        </div>
+                    <div class="form-group">
+                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Preference</label>
+						  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" formControlName="preference">
+							<option selected>Choose...</option>
+							<option value="1">Yes</option>
+							<option value="2">No</option>
+
+						  </select>
+												</div>
+							<div class="form-group">
+                            <label for="exampleMessage">Summary Of Assessment</label>
+                            <textarea class="form-control" id="exampleMessage" formControlName="summary"></textarea>
+                            <small class="text-info">
+                              Add the note here.
+                            </small>
+                        </div>
+                       <div class="form-group">
+                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Recommendations</label>
+						  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" formControlName="recommendations">
+							<option selected>Choose...</option>
+							<option value="1">Select</option>
+							<option value="2">Needs Trainig</option>
+							<option value="3">Reject</option>
+
+						  </select>
+						</div>
+						 <div class="form-group">
+                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Fitment</label>
+							 <div class="form-row">
+								<div class="col-7">
+								<label for="exampleMessage">Designation</label>
+								  <input type="text" class="form-control" placeholder="Designation" formControlName="fitmantDesignation">
+								</div>
+								<div class="col">
+								<label for="exampleMessage">Grade</label>
+								  <input type="text" class="form-control" placeholder="E2" formControlName="fitmentGrade">
+								</div>
+
+							  </div>
+						</div>
+                    </div>
+
+                </div>
+
+
+
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="postConclusion();">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+		 </div>
+		 </div>
+		 </div>
+		 </div>
+<button type="button" class="btn btn-primary mt-5 float-right">Check</button>
+</div>
+<!-- <div class="col-3 col-md-3 col-lg-3"> -->
+<!-- <div class="card" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); background-color:#194769; height:-webkit-fill-available;">
+  <div class="card-body">
+     <h5 class="card-title" style="color:white;">Quick Links</h5>
+	   <div class="row">
+	<div class="col-9" style="color:#b8b894;">
+		<p class="card-text mt-2"><a href = "#" style="color:#b8b894;">Basic Details</a></p>
+				<p class="card-text dropdown-toggle" id="btnGroupDrop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><a href = "#" style="color:#b8b894;" >Basic Skills</a></p>
+
+    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+      <a class="dropdown-item" href="#">C</a>
+      <a class="dropdown-item" href="#">Data Structures</a>
+	   <a class="dropdown-item" href="#">RTOS</a>
+    </div>
+
+
+						<p class="card-text" > <a href = "#" style="color:#b8b894;">Project Experience</a></p>
+								<p class="card-text" ><a href = "#" style="color:#b8b894;">Tools Knowledhe</a></p>
+								<p class="card-text" ><a href = "#" style="color:#b8b894;"> Key Competencies</a></p>
+								<p class="card-text" ><a href = "#" style="color:#b8b894;"> Project Mangement</a></p>
+								<p class="card-text" ><a href = "#" style="color:#b8b894;"> Technical Monitoring</a></p>
+								<p class="card-text" ><a href = "#" style="color:#b8b894;"> Technical Specialist</a></p>
+								<p class="card-text" ><a href = "#" style="color:#b8b894;"> Conclusion</a></p>
+	 </div>
+	 <div class="col-3">
+	  <p class="card-text" style="color:#f2855e;">ADD</p>
+	 <p class="card-text" style="color:#f2855e;"  (click)="addSkills()">ADD</p>
+	 <p class="card-text" style="color:#f2855e;"  (click)="addExperience()">ADD</p>
+	 <p class="card-text" style="color:#f2855e;"  (click)="addKnowledge()">ADD</p>
+	  <p class="card-text" style="color:#f2855e;"  (click)="addCompetencies()">ADD</p>
+	  	  <p class="card-text"style="color:#f2855e;"  (click)="addProject()">ADD</p>
+		   <p class="card-text" style="color:#f2855e;"  (click)="addMonitoring()">ADD</p>
+		    <p class="card-text"style="color:#f2855e;"  (click)="addSpecialist()">ADD</p>
+		  	  <p class="card-text" style="color:#f2855e;"  (click)="addConclusion()">ADD</p>
+
+
+
+	 </div>
+   </div>
+   </div>
+   </div> -->
+<!-- </div> -->
+</div>
+</div>

@@ -1,0 +1,75 @@
+<div class="jumbotron" style="background-color:#194769;margin-bottom:0px;">
+<div class="container py-5" style="background-color:#194769;height:-webkit-fill-available;max-width:100%;">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center text-white mb-4">Interview Portal</h2>
+            <div class="row">
+                <div class="col-md-4 mx-auto">
+
+                    <!-- form card login -->
+                    <div class="card rounded-0" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+                        <div class="card-header">
+                            <h3 class="mb-0">Login</h3>
+                        </div>
+                        <div class="card-body">
+                            <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST" [formGroup] = "loginForm" #formDir="ngForm">
+
+    							                       <div class="form-group">
+                                    <label for="email1">Email</label>
+                                    <input  formControlName="email" type="email" class="form-control form-control-lg rounded-0" name="email1" id="email1" required autofocus required="">
+                                    <div class="alert alert-danger" *ngIf="loginForm.hasError('required', 'email') && formDir.submitted">
+                                      email is required
+                                       </div>
+                                     </div>
+
+
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input formControlName="password" type="password" class="form-control form-control-lg rounded-0" id="pwd1" required="" autocomplete="new-password">
+                                    <div class="alert alert-danger" *ngIf="loginForm.hasError('required', 'password') && formDir.submitted">
+                                      password is required
+                                       </div>
+                                    <div class="invalid-feedback">Enter your password too!</div>
+                                </div>
+
+
+
+
+                                <div>
+                                    <label class="custom-control custom-checkbox">
+                                      <input type="checkbox" class="custom-control-input">
+                                      <span class="custom-control-indicator"></span>
+                                      <span class="custom-control-description small text-dark">Remember me on this computer</span>
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin" (click)="login()" style="background-color:#f2855e; border:none;" [disabled]="loginForm.invalid && formDir.submitted">Login</button>
+                                  <button class="btn btn-lg  btn-lg mb-1 float-left" type="submit" (click)="moveToRegister();" style="background-color:#f2855e;border:none;color:white;">Register</button>
+
+                            </form>
+                        </div>
+                        <!--/card-block-->
+                    </div>
+                    <!-- /form card login -->
+
+                </div>
+
+
+            </div>
+            <!--/row-->
+
+        </div>
+        <!--/col-->
+    </div>
+    <!--/row-->
+</div>
+</div>
+  <!-- <div class="row">
+    <div class="card">
+      <div class="card-header">
+        <h1>Login</h1>
+      </div>
+      <div class="card-body">
+        {{title}}
+      </div>
+    </div>
+  </div> -->

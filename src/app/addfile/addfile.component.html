@@ -1,0 +1,83 @@
+<div class="container-fluid" style="padding-left:0px;">
+<div class="row">
+<div class="col-2 col-md-2 clo-lg-2" >
+<div class="card" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); background-color:#194769; height:-webkit-fill-available;">
+  <div class="card-body">
+     <h5 class="card-title" style="color:white;">Interview Portal</h5>
+	   <div class="row">
+	<div class="col-10" style="color:#b8b894;">
+		<p class="card-text" ><a href = "#" style="color:#b8b894;">Form</a></p>
+				<p class="card-text" ><a href = "#" style="color:#b8b894;">All</a></p>
+						<p class="card-text" > <a href = "#" style="color:#b8b894;">On Hold</a></p>
+								<p class="card-text" ><a href = "#" style="color:#b8b894;">Recruited</a></p>
+								<p class="card-text" style="color:#b8b894;" (click)="moveToAdd();">Add File</p>
+	 </div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-8 col-md-8 col-lg-8">
+  <h3 class="text-center mt-2" style="color:#194769;">File Uploading Section</h3>
+  <div class="card mt-5" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+    <div class="card-body">
+    <div class="row">
+    <div class="col-md-12">
+      <div id="fileSelector">
+      <label for="exampleFormControlFile1">Upload File here</label>
+         <input type="file" class="form-control-file" id="exampleFormControlFile1"
+         mutiple ng2FileSelect [uploader]="uploader">
+      </div>
+</div>
+</div>
+
+
+          <div class="col-md-12">
+            <div class="row" *ngFor="let item of uploader.queue">
+          <div class="col-md-4 mt-3">
+            File Name
+          </div>
+          <div class="col-md-4 mt-3">
+            <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 25%"
+            [ngStyle]="{'width' : item.progress + '%'}"></div>
+          </div>
+          </div>
+          <div class="col-md-4 float-right">
+            <button type="button" class="btn btn-dark float-right" (click) = "item.uploadAll();">upload</button>
+            <button type="button" class="btn btn-info float-right" (click)="item.remove()">Cancel</button>
+
+          </div>
+
+
+    </div>
+      <button type="button" class="btn btn-info float-left mt-3" *ngIf="uploader?.queue?.length > 0" (click)="uploader.uploadAll();">upload All</button>
+  	</div>
+
+
+  </div>
+</div>
+
+    <div class="card mt-5" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);">
+      <div class="card-title">
+        List of Available Files
+      </div>
+
+
+      <div class="card-body jumbotron">
+        <div class="row" *ngFor="let item of attachmentList ; let i=index">
+      <div class="col-sm-7">
+        {{item.originalName}}
+        </div>
+        <div class="col-sm-5">
+          <button type="button" class="btn btn-primary" (click)="download(i)">Download</button>
+    	</div>
+    	</div>
+    	</div>
+    	</div>
+
+</div>
+
+
+</div>
+</div>
