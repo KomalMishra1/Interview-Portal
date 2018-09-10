@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient , HttpHeaders  , HttpResponse} from '@angular/common/http';
 import 'rxjs';
+import {Subject} from 'rxjs';
 import {Observable} from 'rxjs';
 
 
@@ -9,8 +10,19 @@ import {Observable} from 'rxjs';
 
 export class AppService {
 
-
+  public newSubject = new Subject<any>();
+  public check : any;
+  public check1 : any;
   constructor(private _http : HttpClient) {}
+
+  getCandidateData(data) {
+  //  this.newSubject.next(data);
+    this.check= data;
+  }
+
+  getCandidateOfAdminData(data){
+    this.check1= data;
+  }
 
 downloadFile(file : String) {
   var body = {filename : file};
@@ -36,7 +48,7 @@ postBasicDetails(body : any){
 }
 
 postProjectExperience(body : any) {
-  return this._http.post('http//localhost:3000/employee.save' , body , {
+  return this._http.post('http://localhost:3000/employee.save' , body , {
     observe : 'body',
     withCredentials : true,
     headers:new HttpHeaders().append('Content-Type' , 'application/json')
@@ -84,7 +96,7 @@ postTecnicalSpecialist(body : any) {
 }
 
 postConclusion(body : any) {
-  return this._http.post('http//localhost:3000/employee.save' , body , {
+  return this._http.post('http://localhost:3000/employee.save' , body , {
     observe : 'body',
     withCredentials : true,
     headers:new HttpHeaders().append('Content-Type' , 'application/json')
@@ -92,5 +104,40 @@ postConclusion(body : any) {
 }
 
 
+getCandidateList(id): Observable<any> {
+      return this._http.get('https://jsonplaceholder.typicode.com/posts/ + id', {responseType: 'json' ,
+       headers:new HttpHeaders().append('Content-Type' , 'application/json')});
+}
+
+
+
+
+getCFile():  Observable<any> {
+  return this._http.get('https://jsonplaceholder.typicode.com/posts/', {
+   responseType : 'json',
+     headers:new HttpHeaders().append('Content-Type' , 'application/json')
+  });
+}
+
+getAllUploads():  Observable<any> {
+  return this._http.get('https://jsonplaceholder.typicode.com/users', {
+   responseType : 'json',
+     headers:new HttpHeaders().append('Content-Type' , 'application/json')
+  });
+}
+
+
+postData(body : any) {
+  return this._http.post('http//localhost:3000/employee.save' , body , {
+    observe : 'body',
+    withCredentials : true,
+    headers:new HttpHeaders().append('Content-Type' , 'application/json')
+  });
+}
+
+getAllCandidates(body : any): Observable<any> {
+      return this._http.get('https://jsonplaceholder.typicode.com/posts/', {responseType: 'json' ,
+       headers:new HttpHeaders().append('Content-Type' , 'application/json')});
+}
 
 }

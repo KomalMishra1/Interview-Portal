@@ -1,0 +1,161 @@
+ <div class="container-fluid" style="padding-left:0px;">
+<div class="row">
+<!-- <div class="col-2 col-md-2 clo-lg-2" >
+<div class="card" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); background-color:#194769; height:-webkit-fill-available;">
+  <div class="card-body">
+     <h5 class="card-title" style="color:white;">Interview Portal</h5>
+	   <div class="row">
+	<div class="col-10" style="color:#b8b894;">
+		<p class="card-text" ><a href = "#" style="color:#b8b894;">Form</a></p>
+				<p class="card-text" ><a href = "#" style="color:#b8b894;">All</a></p>
+						<p class="card-text" > <a href = "#" style="color:#b8b894;">On Hold</a></p>
+								<p class="card-text" ><a href = "#" style="color:#b8b894;">Recruited</a></p>
+								<p class="card-text" style="color:#b8b894;" (click)="moveToAdd();">Add File</p>
+	 </div>
+	 <div class="col-2">
+	 <!-- <p class="card-text"><a href="#">ADD</a></p> -->
+	<!-- <p class="card-text"><a href="#">ADD</a></p> -->
+	<!-- <p class="card-text"><a href="#">ADD</a></p> -->
+	<!-- <p class="card-text"><a href="#">ADD</a></p> -->
+	 <!-- <p class="card-text"><a href="#">ADD</a></p> -->
+
+<!--
+	 </div>
+   </div>
+   </div>
+   </div>
+
+</div> -->
+<div class = "col-2 col-md-2 col-lg-2">
+</div>
+<div class="col-8 col-md-8 col-lg-8" style = "padding-top:40px">
+  <!-- <h3 class="text-center mt-2" style="color:#194769;">Basic Details Form</h3> -->
+  <div class="card rounded-0" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);color:#194769;">
+      <div class="card-header">
+          <h3 class="mb-0">Basic Details Form</h3>
+      </div>
+      <div class="card-body">
+  <div class="col-md-12 mt-5">
+  <div class="well well-sm">
+    <form class="form-horizontal text-center" [formGroup]="basicDetailsForm" #formDir="ngForm">
+    <fieldset>
+    <div class="form-group">
+      <div class="col-md-12">
+      <div class="row">
+    <div class="col-md-1 col-1 col-sm-1 col-lg-1 text-center"><i class="fa fa-user" style="font-size: 35px ; color: #194769;"></i></div>
+    <div class=" col-10 col-sm-10 col-md-10 col-lg-10 ">
+    <input id="name" name="name" type="text" placeholder="Candidate Name" class="form-control" formControlName="name" style="border-radius:1.25rem;">
+    <div class="alert alert-danger" *ngIf="basicDetailsForm.hasError('required', 'name') && formDir.submitted" style="border-radius:1.25rem;">
+      name is required
+       </div>
+    </div>
+  </div>
+  </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12">
+      <div class="row">
+    <div class="col-md-1 col-md-offset-2 text-center"><i class="fas fa-envelope-square"  style="font-size: 35px ; color: #194769;"></i></div>
+    <div class="col-md-10">
+    <input id="email" name="email" type="text" placeholder="Candidate Email Address" class="form-control" formControlName="email" style="border-radius:1.25rem;">
+    <div class="alert alert-danger" *ngIf="basicDetailsForm.hasError('required', 'email') && formDir.submitted" style="border-radius:1.25rem;">
+      email is required
+       </div>
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12">
+      <div class="row">
+    <div class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square "  style="font-size: 35px ; color: #194769;"></i></div>
+    <div class="col-md-10">
+    <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control" formControlName="mobile" style="border-radius:1.25rem;">
+    <div class="alert alert-danger" *ngIf="basicDetailsForm.hasError('required', 'mobile') && formDir.submitted" style="border-radius:1.25rem;">
+      mobile no. is required
+       </div>
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12">
+      <div class="row">
+    <div class="col-md-1 col-md-offset-2 text-center"><i class="fas fa-chalkboard-teacher" style="font-size: 35px ; color: #194769;"></i></div>
+    <div class="col-md-10">
+    <input id="experience" formControlName="experience" name="experience" type="number" placeholder="Experience" class="form-control" style="border-radius:1.25rem;">
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12">
+      <div class="row">
+    <div class="col-md-1 col-md-offset-2 text-center"><i class="far fa-id-card"style="font-size: 35px ; color: #194769;"></i></div>
+    <div class="col-md-10">
+    <input id="employeeId" name="employeeId" formControlName="interviewerId" type="text" placeholder="Interviewer Employee Id" class="form-control" style="border-radius:1.25rem;">
+    <div class="alert alert-danger" *ngIf="basicDetailsForm.hasError('required' ,'interviewerId') && formDir.submitted" style="border-radius:1.25rem;">
+      Id is required
+       </div>
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12">
+      <div class="row">
+    <div class="col-md-1 col-md-offset-2 text-center"><i class="fas fa-envelope-square"  style="font-size: 35px ; color: #194769;"></i></div>
+    <div class="col-md-10">
+      <!-- <div class="row"> -->
+        <!-- <div class="col-10"> -->
+    <input id="email1" name="email1" formControlName="interviewerEmailId" type="email" placeholder="Employee Email Address" class="form-control" style="border-radius:1.25rem;">
+    <div class="alert alert-danger" *ngIf="basicDetailsForm.hasError('required', 'interviewerEmailId') && formDir.submitted" style="border-radius:1.25rem;">
+    Interviewer  email is required
+       </div>
+  <!-- </div> -->
+  <!-- <div class="col-3"> -->
+      <!-- <button type="submit" class="btn btn-primary" (click)="sendEmail();">Notify Interviewer</button> -->
+  <!-- </div> -->
+<!-- </div> -->
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="form-group">
+    <div class="col-md-12 text-center">
+    <button type="submit" class="btn btn-primary btn-lg" (click)="postBasicDetails();"  data-toggle="modal" data-target="#exampleModalCenter" [disabled]="basicDetailsForm.invalid && formDir.submitted" style="border-radius:2.3rem;background-color:#194769;">Submit</button>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" *ngIf="showPopup">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Congratulations</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <img src="../assets/images/checked.png" alt="add">
+
+      <h5 class="x mt-5">You have successfully created a candidate</h5>
+      </div>
+      <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" data-dismiss="modal"(click)="moveToOptions();">GO Back</button>
+        <button type="button" class="btn btn-primary float-left" style="background-color:#194769;" data-dismiss="modal" (click)="moveToAll();">See All</button>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+    </div>
+    </fieldset>
+  </form>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="col-2 col-md-2 col-lg-2">
+<button type="submit" class="btn btn-primary fixed-bottom float-right mb-3 mx-3" style="left:0px; background-color:#f2855e;border:none;">LogOut</button>
+</div>
+</div>
+</div>

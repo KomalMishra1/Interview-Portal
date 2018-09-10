@@ -1,0 +1,256 @@
+<div class="container-fluid">
+<div class="row">
+  <div class="col-2 col-md-2 col-lg-2" style="padding-top:20px;">
+    <!-- <div class="btn-group" role="group">
+       <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Evaluate
+       </button>
+       <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+         <a class="dropdown-item" (click)="gotoC('C');">C</a>
+         <a class="dropdown-item" (click)="gotoJava('Java');">Java</a>
+         <a class="dropdown-item" (click)="gotoPython('Python');">Python</a>
+         <a class="dropdown-item" (click)="gotoProjectManagement('Project Management');">Project Management</a>
+         <a class="dropdown-item" (click)="gotoDataStructures('Data Structures');">Data Structures</a>
+         <a class="dropdown-item" (click)="gotoC();">Dropdown link</a>
+         <a class="dropdown-item" (click)="gotoC();">Dropdown link</a>
+         <a class="dropdown-item" (click)="gotoC();">Dropdown link</a>
+       </div>
+     </div> -->
+
+     <div class="btn-group" role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Evaluate
+        </button>
+        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+          <a class="dropdown-item" (click)="goto(i)" *ngFor="let type of uploads ; let i = index">{{type.id}}</a>
+          <!-- <a class="dropdown-item" (click)="gotoProjectManagement('Project Management');">Project Management</a>
+          <a class="dropdown-item" (click)="gotoDataStructures('Data Structures');">Data Structures</a>
+          <a class="dropdown-item" (click)="gotoC();">Dropdown link</a>
+          <a class="dropdown-item" (click)="gotoC();">Dropdown link</a>
+          <a class="dropdown-item" (click)="gotoC();">Dropdown link</a> -->
+        </div>
+      </div>
+
+  </div>
+  <div class="col-8 col-md-8 col-lg-8">
+
+<h3 class="text-center mt-2" style="color:#194769;">Hello {{candidateObj.userId}}</h3>
+<div class="card mt-5" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);" >
+  <div class="card-body">
+  <div class="row">
+  <div class="col">
+     <h5 class="card-title">{{candidateObj.title}}</h5>
+	 <div class="card-title" style="color:#b8b894;">
+	{{candidateObj.body}}
+	 </div>
+    </div>
+    <div class="col">
+	<img src="assets/images/user.png" alt="user" style="float:right;">
+	</div>
+	</div>
+	</div>
+	</div>
+  <!-- <div class="card mt-5" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);" *ngIf="showC">
+    <div class="card-body">
+    <div class="row">
+    <div class="col">
+       <h5 class="card-title">{{nameC}} Skills</h5>
+  	  <div class="card-title" style="color:#b8b894;">
+  	 Please Fill out the basic skills of the Candidate
+  	 </div>
+      </div>
+      <div class="col">
+      <img src="../assets/images/add.png" alt="add" style="float:right;" data-toggle="modal" data-target="#exampleModal" (click)="generateFormC();">
+  	 <!-- Button trigger modal -->
+
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{nameC}} Skills</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form >
+
+    <div class="form-group">
+      <div class= "form-row" *ngFor = "let topic of data ; let i=index">
+      <div class = "col" >
+        <label>{{topic.id}}</label>
+      </div>
+        <div class="col">
+        <select (change)="pushCData($event.target.value , topic , i);">
+         <option *ngFor="let select of select" [value]="select" >
+           {{select}}
+         </option>
+       </select>
+     </div>
+   </div> -->
+      <!-- <tr *ngFor = "let topic of data ; let i=index" >
+        <th scope="row">{{i+1}}</th>
+        <td>{{topic.title}}</td>
+      <td > <select (click)="push();">
+        <option *ngFor="let select of select" [value]="select">
+          {{select}}
+        </option>
+      </select></td>
+      </tr> -->
+    <!-- </div>
+
+    <div class="form-group">
+            <button type="button" class="btn btn-primary" (click)="postCData();">Submit</button>
+    </div>
+  </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+  <!-- </div>
+  </div>
+  </div>
+  </div> -->
+  <!-- <div class="card mt-5" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);" *ngIf="showJava">
+    <div class="card-body">
+    <div class="row">
+    <div class="col">
+       <h5 class="card-title">{{nameJava}} Skills</h5>
+      <div class="card-title" style="color:#b8b894;">
+     Please Fill out the basic skills of the Candidate
+     </div>
+      </div>
+      <div class="col">
+      <img src="../assets/images/add.png" alt="add" style="float:right;" data-toggle="modal" data-target="#exampleModal1" (click)="getJavaFile();">
+     <!-- Button trigger modal -->
+
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{namejava}} Skills</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <form>
+
+    <div class="form-group" >
+        <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Topics</th>
+        <th scope="col">Weightage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let topic of topics ; let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{topic}}</td>
+      <td> <select class="custom-select">
+        <option selected> select</option>
+        <option value="1" (click)="push(topic,'weak')" >Weak</option>
+        <option value="2">Average</option>
+        <option value="3">Good</option>
+        <option value="4">Excellent</option>
+      </select></td>
+      </tr>
+    </tbody>
+  </table>
+    </div>
+  </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>  -->
+
+
+  <!-- </div>
+  </div>
+  </div>
+  </div>  -->
+
+  <div class="card mt-5" style="box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);"  *ngFor="let list of listOfCards">
+    <div class="card-body">
+    <div class="row">
+    <div class="col">
+       <h5 class="card-title">{{list.fileTopic}} Skills</h5>
+      <div class="card-title" style="color:#b8b894;">
+     Please Fill out the basic skills of the Candidate
+     </div>
+      </div>
+      <div class="col">
+      <img src="../assets/images/add.png" alt="add" style="float:right;" data-toggle="modal" data-target="#exampleModal3" (click)="getForm(list);">
+     <!-- Button trigger modal -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+
+    <div class="form-group" >
+        <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Topics</th>
+        <th scope="col">Weightage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let topic of fileContents ; let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{topic.topic}}</td>
+      <td> <select (change)="pushData($event.target.value , topic.topic , i , list.id);">
+       <option *ngFor="let select of select" [value]="select" >
+         {{select}}
+       </option>
+     </select></td>
+      </tr>
+    </tbody>
+  </table>
+    </div>
+  </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="saveChanges();">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+  </div>
+  </div>
+  </div>
+    <button type="button" class="btn btn-primary btn-lg  float-right mt-5" (click)="PostData();" *ngIf="listOfCards?.length > 0" style="background-color:#194769;border:none ; border-radius:1rem;">Post</button>
+</div>
+<div class="col-2 col-md-2 col-lg-2">
+
+</div>
+</div>
+</div>

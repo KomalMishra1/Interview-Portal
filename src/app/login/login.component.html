@@ -12,9 +12,13 @@
                             <h3 class="mb-0">Login</h3>
                         </div>
                         <div class="card-body">
-                            <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST" [formGroup] = "loginForm" #formDir="ngForm">
+                            <form class="form" role="form" autocomplete="off" id="formLogin" novalidate
+                             method="POST" [formGroup] = "loginForm" #formDir="ngForm">
 
-    							                       <div class="form-group">
+    							                       <div class="form-group" [ngClass]="{
+                                                  'has-danger': loginForm.controls.email.invalid && loginForm.controls.email.dirty,
+                                                  'has-success': loginForm.controls.email.valid && loginForm.controls.email.dirty
+                                                }">
                                     <label for="email1">Email</label>
                                     <input  formControlName="email" type="email" class="form-control form-control-lg rounded-0" name="email1" id="email1" required autofocus required="">
                                     <div class="alert alert-danger" *ngIf="loginForm.hasError('required', 'email') && formDir.submitted">
